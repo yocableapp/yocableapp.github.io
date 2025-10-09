@@ -1,194 +1,210 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="PZlX2K6enuhnf_tONAsaF8-J_OSQrmwVT6Y8tmvpVjQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yocable – L’apprentissage du vocabulaire réinventé</title>
+  <title>Yocable – Swipe. Learn. Speak.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --dark-bg: #0b132b;
-      --mid-bg: #1c2541;
-      --blue: #3a66ff;
-      --light-blue: #5e85ff;
-      --white: #f8f9ff;
-      --text: #dce3ff;
+      --blue: #2563eb;
+      --blue-light: #60a5fa;
+      --bg: #f9fbff;
+      --text-dark: #1e293b;
+      --text-light: #475569;
+      --card-bg: #ffffff;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: var(--dark-bg);
-      color: var(--text);
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
       scroll-behavior: smooth;
     }
+
     header {
       text-align: center;
       padding: 4rem 1rem 3rem;
-      background: linear-gradient(135deg, var(--mid-bg), var(--dark-bg));
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      color: white;
     }
+
     header img {
-      width: 130px;
+      width: 120px;
       border-radius: 16px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
+
     h1 {
-      font-size: 2.8rem;
-      color: var(--white);
-      margin-bottom: 0.4rem;
+      font-size: 2.5rem;
+      margin: 0.3rem 0;
     }
+
     p.subtitle {
-      font-size: 1.2rem;
-      color: var(--light-blue);
+      font-size: 1.1rem;
       margin-top: 0;
+      opacity: 0.95;
     }
-    h2 {
-      color: var(--light-blue);
-      text-align: center;
-      font-size: 1.9rem;
-      margin: 3rem 0 1rem;
+
+    a.button {
+      display: inline-block;
+      background: white;
+      color: var(--blue);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
+
+    a.button:hover {
+      background: var(--blue-light);
+      color: white;
+    }
+
     section {
-      padding: 1.5rem;
-      max-width: 900px;
+      padding: 3rem 1rem;
+      max-width: 950px;
       margin: 0 auto;
     }
+
+    h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
     .feature {
-      background: var(--mid-bg);
+      background: var(--card-bg);
       border-radius: 16px;
       padding: 2rem;
       margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .feature:hover {
       transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
+
     .feature h3 {
       color: var(--blue);
       margin-top: 0;
     }
-    .button {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 40px;
-      text-decoration: none;
-      margin-top: 2rem;
-      font-weight: 600;
-      transition: background 0.3s ease;
+
+    .feature p {
+      color: var(--text-light);
+      font-size: 1.05rem;
     }
-    .button:hover {
-      background: var(--light-blue);
-    }
+
     footer {
       text-align: center;
-      padding: 3rem 1rem;
-      background: var(--mid-bg);
-      color: #9aa6ff;
+      padding: 2.5rem 1rem;
+      background: #eef2ff;
+      color: #475569;
       font-size: 0.95rem;
     }
+
     footer a {
-      color: var(--light-blue);
+      color: var(--blue);
       text-decoration: none;
+      font-weight: 600;
     }
+
     footer a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <img src="final2.png" alt="Logo Yocable">
+    <img src="final2.png" alt="Yocable Logo">
     <h1>Yocable</h1>
-    <p class="subtitle">Swipez. Apprenez. Progressez. 🌍</p>
-    <a href="#" class="button">Télécharger l’app</a>
+    <p class="subtitle">The simplest way to master vocabulary. 🚀</p>
+    <a href="#" class="button">Download the App</a>
   </header>
 
   <section>
-    <h2>🚀 L’apprentissage du vocabulaire, simplifié</h2>
+    <h2>🧠 Smart Learning Made Simple</h2>
     <div class="feature">
       <p>
-        <strong>Yocable</strong> est une application mobile conçue pour rendre 
-        l’apprentissage du vocabulaire <strong>rapide, intuitif et durable</strong>.  
-        Grâce à une interface fluide inspirée du “swipe”, chaque session devient un mini-jeu :  
-        👉 glissez à droite si vous connaissez le mot, 👈 à gauche si vous l’avez oublié.
+        <strong>Yocable</strong> is an innovative mobile app that makes learning new vocabulary simple, fast, and fun.  
+        Using an intuitive <strong>swipe-based interface</strong>, you review words in seconds — swipe right if you know it, left if you don’t.
       </p>
       <p>
-        En quelques minutes par jour, vous renforcez votre mémoire sans effort conscient.  
-        Le geste remplace la contrainte, l’envie prend le relais. 🎯
+        No pressure, no clutter — just pure learning flow. Every gesture strengthens your memory naturally.
       </p>
     </div>
 
-    <h2>🧠 L’algorithme qui apprend avec vous</h2>
+    <h2>🚀 The Intelligence Behind It</h2>
     <div class="feature">
       <p>
-        Yocable s’appuie sur un <strong>système de répétition espacée intelligent (SRS)</strong>  
-        qui adapte vos révisions à votre rythme.  
-        Les mots que vous maîtrisez disparaissent temporairement, ceux que vous oubliez reviennent plus souvent.  
+        At the heart of Yocable lies a <strong>Spaced Repetition System (SRS)</strong> — a proven algorithm that adapts each session to your progress.  
+        Words you know appear less frequently, while tricky ones come back just when you’re about to forget them.
       </p>
       <p>
-        Résultat : une courbe d’apprentissage naturelle et efficace, basée sur la science de la mémoire.  
-        Vous n’étudiez pas plus — vous étudiez mieux. 💡
+        The result: faster recall, stronger memory, and effortless consistency.  
+        You don’t study harder — you study smarter.
       </p>
     </div>
 
-    <h2>🎮 Le jeu qui fait de vous un pro des langues</h2>
+    <h2>🎮 Motivation That Lasts</h2>
     <div class="feature">
       <p>
-        L’apprentissage devient un défi personnel :  
-        gagnez des <strong>trophées</strong>, suivez vos statistiques, battez vos records de série (streaks)  
-        et voyez votre niveau grimper au fil des jours.  
+        Learning should be exciting — not a chore.  
+        With <strong>XP points</strong>, <strong>streaks</strong>, <strong>achievements</strong>, and <strong>progress charts</strong>,  
+        Yocable keeps you engaged, challenged, and rewarded.  
       </p>
       <p>
-        Chaque session compte, chaque mot maîtrisé est une victoire. 🏆  
-        Ce n’est plus une application, c’est un terrain de jeu linguistique.
+        Every session feels like a small win — and over time, those wins become fluency. 🏆
       </p>
     </div>
 
-    <h2>✍️ Un apprentissage sur mesure</h2>
+    <h2>✍️ Personalized Learning</h2>
     <div class="feature">
       <p>
-        Ajoutez vos propres mots, explorez des <strong>thèmes variés</strong> (voyage, culture, affaires, émotions...)  
-        ou laissez-vous guider par nos listes intelligentes adaptées à votre niveau.  
+        Customize your experience: add your own words, explore rich <strong>vocabulary themes</strong>  
+        (travel, business, culture, emotions...) and tailor the difficulty to your goals.  
       </p>
       <p>
-        Yocable vous offre un apprentissage <strong>personnalisé et vivant</strong> :  
-        apprenez les mots qui vous ressemblent, dans les langues qui vous inspirent. 🌈
+        Yocable adapts to <strong>you</strong> — not the other way around.
       </p>
     </div>
 
-    <h2>🌙 Une esthétique apaisante</h2>
+    <h2>🎨 Light, Beautiful, and Human</h2>
     <div class="feature">
       <p>
-        L’interface sobre et élégante de Yocable s’adapte à vous :  
-        <strong>mode clair ou sombre</strong>, palettes de couleurs ajustables, typographies lisibles.  
+        A calm and elegant interface that reflects your mood.  
+        <strong>Light and dark themes</strong>, clean typography, and soft gradients create a space that feels effortless.  
       </p>
       <p>
-        L’expérience visuelle devient un espace calme et fluide où la concentration se fait naturellement.  
-        L’apprentissage devient un rituel plaisant, pas une corvée. ✨
+        Yocable isn’t just an app — it’s your daily pocket companion for growth. 🌤️
       </p>
     </div>
 
-    <h2>🌍 Le monde vous attend</h2>
+    <h2>🌍 Speak the World’s Language</h2>
     <div class="feature">
       <p>
-        Chaque mot appris est une porte ouverte vers une culture, une rencontre, une opportunité.  
-        <strong>Yocable</strong> vous accompagne dans cette aventure linguistique, 
-        où la curiosité devient compétence, et l’effort devient plaisir.  
+        Every word you learn is a bridge to a new culture, a new friendship, a new opportunity.  
+        With Yocable, you’re not memorizing — you’re connecting.  
       </p>
-      <p style="text-align:center; font-style:italic; color:#b7c4ff;">
-        « Parlez avec confiance. Swipez pour réussir. 🗣️✨ »
+      <p style="text-align:center; font-style:italic; color:#334155;">
+        “Swipe. Learn. Speak. — and unlock the world.” 🌎✨
       </p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 <strong>Yolo Interactive LLC</strong> — Tous droits réservés.</p>
+    <p>© 2025 <strong>Yolo Interactive LLC</strong> — All rights reserved.</p>
     <p><a href="https://yocableapp.github.io/">yocableapp.github.io</a></p>
   </footer>
+
 </body>
 </html>
