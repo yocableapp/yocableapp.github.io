@@ -6,40 +6,31 @@
   <title>Yocable — Swipe. Learn. Speak.</title>
 
   <!-- SEO -->
-  <meta name="description" content="Yocable, l’app moderne pour mémoriser du vocabulaire : cartes à swiper, algorithme de répétition espacée, stats claires et 70 000+ mots." />
+  <meta name="description" content="Yocable — l’app de vocabulaire qui combine cartes à swiper et répétition espacée. 70 000+ mots, thèmes et phrases. Statistiques claires, XP et trophées." />
   <link rel="canonical" href="https://yocableapp.github.io/" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Yocable — Swipe. Learn. Speak." />
-  <meta property="og:description" content="Apprends par swipe, retiens pour de bon. 70 000+ mots, thèmes et phrases. Yocable rend l’apprentissage simple et efficace." />
+  <meta property="og:description" content="Apprends par swipe, retiens pour de bon. 70 000+ mots, thèmes et phrases. Stats, XP, trophées." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="2_US.jpeg" />
   <meta property="og:url" content="https://yocableapp.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="2_US.jpeg" />
 
-  <!-- Fonts -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg:#0b1220;
-      --bg-soft:#0f172a;
-      --text:#e7e9f1;
-      --muted:#a1a8b6;
-      --brand:#6b74f7;        /* violet-bleu Yocable */
-      --brand-2:#9bd4f0;      /* accent clair */
-      --card:#0f1628;
-      --ring:rgba(107,116,247,.25);
+      --bg:#0b1220; --text:#e7e9f1; --muted:#a1a8b6;
+      --brand:#6b74f7; --accent:#9bd4f0;
+      --card:#0f1628; --ring:rgba(107,116,247,.25);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f6f8ff;
-        --bg-soft:#eef2ff;
-        --text:#0f172a;
-        --muted:#475569;
-        --card:#ffffff;
-        --ring:rgba(107,116,247,.18);
+        --bg:#f6f8ff; --text:#0f172a; --muted:#475569;
+        --card:#ffffff; --ring:rgba(107,116,247,.18);
       }
     }
     *{box-sizing:border-box}
@@ -47,87 +38,77 @@
     body{
       font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
-      background:linear-gradient(135deg,#0f1830 0%,#29365a 55%,#395381 100%);
-      line-height:1.6;
+      background:linear-gradient(135deg,#101a34 0%,#2b3a63 55%,#3a5686 100%);
+      line-height:1.65;
     }
     @media (prefers-color-scheme: light){
       body{background:linear-gradient(135deg,#e9ecff 0%,#eef3ff 55%,#f6f9ff 100%)}
     }
 
-    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .container{max-width:1100px;margin:0 auto;padding:18px}
 
-    /* HERO : feature graphic en haut */
-    header{padding:22px 0 10px}
+    /* HERO — bannière épurée en tête */
+    header{padding:20px 0 8px}
     .feature-hero{
       border-radius:18px;overflow:hidden;
-      box-shadow:0 22px 60px rgba(0,0,0,.30);
+      box-shadow:0 22px 60px rgba(0,0,0,.28);
       border:1px solid rgba(255,255,255,.06);
     }
     .feature-hero img{display:block;width:100%;height:auto}
 
-    /* Intro sous la bannière */
+    /* Intro courte sous la bannière */
     .intro{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
-      padding:26px 4px 8px;
+      display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center;
+      padding:22px 6px 4px;
     }
-    @media (max-width:980px){.intro{grid-template-columns:1fr}}
-    .logo{width:64px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
-    h1{font-size:40px;line-height:1.12;margin:10px 0 6px}
-    .sub{font-size:18px;color:var(--muted);margin:0 0 18px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .intro .logo{width:60px;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.25))}
+    .intro h1{margin:0;font-size:36px;line-height:1.15}
+    .intro p{margin:6px 0 0;color:var(--muted)}
+    .cta-row{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
     .btn{
       appearance:none;border:0;cursor:pointer;
       padding:12px 18px;border-radius:14px;font-weight:700;
-      background:#fff;color:#1f2937;text-decoration:none;
-      box-shadow:0 10px 28px rgba(0,0,0,.16);
+      background:var(--brand);color:#fff;text-decoration:none;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
       transition:transform .15s ease, box-shadow .15s ease;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 36px rgba(0,0,0,.22)}
-    .btn.primary{background:var(--brand);color:#fff}
-
-    .phone{
-      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0));
-      border-radius:22px;padding:10px;border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-    }
-    .phone img{width:100%;display:block;border-radius:18px}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(0,0,0,.22)}
+    .btn.light{background:#fff;color:#1f2937}
 
     /* Sections */
-    section{padding:30px 4px}
-    h2{font-size:28px;margin:0 0 14px}
+    section{padding:28px 6px}
+    h2{font-size:26px;margin:0 0 12px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     @media (max-width:980px){.grid-3{grid-template-columns:1fr}}
     .card{
       background:var(--card);border-radius:16px;padding:18px;
       border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 12px 32px rgba(0,0,0,.22);
+      box-shadow:0 12px 30px rgba(0,0,0,.22);
     }
     .card h3{margin:0 0 6px;font-size:18px}
     .card p{margin:6px 0 0;color:var(--muted)}
 
+    /* Galerie */
     .gallery{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px
     }
     .gallery img{
       width:100%;height:auto;border-radius:14px;display:block;
-      box-shadow:0 12px 32px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 12px 30px rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.06);
     }
     @media (max-width:980px){.gallery{grid-template-columns:1fr 1fr}}
     @media (max-width:560px){.gallery{grid-template-columns:1fr}}
 
-    .feature-banner{
+    /* Bloc accent */
+    .feature{
       background:linear-gradient(135deg,rgba(107,116,247,.16),rgba(155,212,240,.12));
       border:1px solid var(--ring);
-      border-radius:18px;overflow:hidden;
-      display:grid;grid-template-columns:1.1fr .9fr;align-items:center;
+      border-radius:18px;overflow:hidden;padding:18px 20px;
     }
-    .feature-banner .copy{padding:22px}
-    .feature-banner h3{margin:0 0 8px}
-    .feature-banner p{margin:0;color:var(--muted)}
-    .feature-banner img{width:100%;display:block}
 
     footer{
-      margin-top:36px;padding:28px 0;text-align:center;color:var(--muted);
+      margin-top:34px;padding:26px 0;text-align:center;color:var(--muted);
       border-top:1px solid rgba(255,255,255,.08);
       background:linear-gradient(180deg,transparent,rgba(0,0,0,.14));
     }
@@ -145,70 +126,92 @@
     "operatingSystem":"Android, iOS, Web",
     "image":"2_US.jpeg",
     "logo":"3D.png",
-    "description":"Apprends par swipe + répétition espacée. Des centaines de mots chaque mois, facilement.",
+    "description":"Cartes à swiper + répétition espacée intelligente. 70 000+ mots, thèmes et phrases. Stats claires, XP et trophées.",
     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
   </script>
 </head>
 <body>
   <div class="container">
-    <!-- Bannière tout en haut -->
+
+    <!-- 1) BANNIÈRE -->
     <header>
-      <div class="feature-hero" aria-label="Yocable feature graphic">
+      <div class="feature-hero" aria-label="Bannière Yocable">
         <img src="2_US.jpeg" alt="Yocable — The most effective way to remember vocabulary" />
       </div>
     </header>
 
-    <!-- Intro + CTA -->
-    <section class="intro">
+    <!-- 2) INTRO ULTRA SYNTHÉTIQUE -->
+    <section class="intro" aria-label="Présentation rapide">
+      <img class="logo" src="3D.png" alt="Logo Yocable" />
       <div>
-        <img class="logo" src="3D.png" alt="Logo Yocable" />
-        <h1>Swipe. Learn. Speak.</h1>
-        <p class="sub">La méthode la plus efficace pour retenir le vocabulaire — apprends des centaines de mots chaque mois, simplement.</p>
+        <h1>Apprends plus vite. Retiens plus longtemps.</h1>
+        <p>
+          Yocable rend l’apprentissage du vocabulaire <strong>simple, rapide et efficace</strong>.  
+          Swipes intuitifs, <strong>répétition espacée intelligente</strong>, 70 000+ mots, thèmes et phrases.  
+          Des statistiques claires, de l’<strong>XP</strong> et des trophées pour rester motivé.
+        </p>
         <div class="cta-row">
-          <a class="btn primary" href="#" aria-label="Télécharger Yocable sur Google Play">Obtenir l’app</a>
-          <a class="btn" href="#captures">Voir les captures</a>
+          <a class="btn" href="#" aria-label="Télécharger Yocable">Télécharger</a>
+          <a class="btn light" href="#captures">Voir les captures</a>
         </div>
-      </div>
-      <div class="phone" aria-hidden="true">
-        <img src="1_1.jpeg" alt="Écran de révision par swipe" />
       </div>
     </section>
 
-    <!-- 3 points clés -->
-    <section>
-      <h2>Ce qui change tout</h2>
+    <!-- 3) LES 3 PILIERS -->
+    <section aria-label="Pourquoi ça marche">
+      <h2>Le cœur de l’expérience</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Apprentissage par swipe</h3>
-          <p>Droite si tu sais, gauche si tu doutes. Un flux simple qui fait durer la mémoire.</p>
+          <h3>Cartes à swiper</h3>
+          <p>Droite si tu sais, gauche si tu doutes. Révisions ultra-rapides, sans friction.</p>
         </div>
         <div class="card">
-          <h3>Répétition espacée</h3>
-          <p>L’algorithme planifie tes révisions au bon moment pour ancrer les mots.</p>
+          <h3>Algorithme SRS</h3>
+          <p>Les mots reviennent au moment idéal. Bonne réponse → intervalle plus long ; erreur → révision plus tôt.</p>
         </div>
         <div class="card">
-          <h3>Motivation intégrée</h3>
-          <p>XP, niveaux, séries et stats claires — tout pour rester régulier.</p>
+          <h3>Inversé & actif</h3>
+          <p>Traductions dans les deux sens pour un rappel solide (langue maternelle ⇄ langue cible).</p>
         </div>
       </div>
     </section>
 
-    <!-- Mise en avant contenu -->
-    <section>
-      <div class="feature-banner">
-        <div class="copy">
-          <h3>70 000+ mots, thèmes & phrases de survie</h3>
-          <p>Du débutant à l’expert, ajoute aussi tes propres listes en un geste.</p>
-        </div>
-        <img src="3_3.jpeg" alt="Listes de vocabulaire et niveaux" loading="lazy" />
+    <!-- 4) CONTENU & PERSONNALISATION -->
+    <section aria-label="Contenu et personnalisation">
+      <div class="feature">
+        <h2>Contenu riche & apprentissage sur mesure</h2>
+        <p style="margin:6px 0 0;color:var(--muted)">
+          <strong>70 000+ mots</strong>, thèmes variés et phrases de survie. Ajoute tes propres mots, choisis le niveau (Débutant → Expert)  
+          et gère jusqu’à <strong>quatre paires de langues</strong> en parallèle. Interface en plusieurs langues, plus de <strong>100 thèmes</strong> visuels.
+        </p>
       </div>
     </section>
 
-    <!-- Galerie -->
-    <section id="captures">
-      <h2 style="text-align:center;margin-bottom:8px">Captures d’écran</h2>
-      <p class="sub" style="text-align:center;margin:0 0 14px">Un aperçu rapide de ce que tu vas utiliser chaque jour.</p>
+    <!-- 5) MOTIVATION & SUIVI -->
+    <section aria-label="Motivation et suivi">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Stats claires</h3>
+          <p>Précision, temps, distribution des paliers, points faibles… tout est lisible en un coup d’œil.</p>
+        </div>
+        <div class="card">
+          <h3>XP, niveaux, trophées</h3>
+          <p>Chaque session progresse ton niveau. Débloque des succès et garde ta série quotidienne.</p>
+        </div>
+        <div class="card">
+          <h3>Local & Cloud</h3>
+          <p>Fonctionne hors ligne (base locale) avec synchronisation périodique sur le cloud.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) GALERIE — chaque image une seule fois -->
+    <section id="captures" aria-label="Captures d’écran">
+      <h2 style="text-align:center;margin-bottom:8px">Aperçu de l’app</h2>
+      <p class="muted" style="text-align:center;color:var(--muted);margin:0 0 12px">
+        Du swipe à l’algorithme, du contenu aux stats — tout ce qu’il faut pour apprendre au quotidien.
+      </p>
       <div class="gallery">
         <img src="1_1.jpeg" alt="Learn by swiping" loading="lazy" />
         <img src="2_2.jpeg" alt="Smart algorithm to lock in words" loading="lazy" />
@@ -219,24 +222,21 @@
       </div>
     </section>
 
-    <!-- Dernier CTA -->
-    <section>
-      <div class="feature-banner">
-        <img src="2_US.jpeg" alt="Yocable — visuel de présentation" loading="lazy" />
-        <div class="copy">
-          <h3>Prêt à commencer ?</h3>
-          <p>Rejoins les apprenants qui font grandir leur vocabulaire chaque jour.</p>
-          <div class="cta-row" style="margin-top:12px">
-            <a class="btn primary" href="#">Télécharger</a>
-            <a class="btn" href="mailto:yoacableapp@gmail.com">Contact</a>
-          </div>
+    <!-- 7) CTA FINAL -->
+    <section aria-label="Appel à l’action">
+      <div class="feature">
+        <h2>Prêt à commencer ?</h2>
+        <p style="margin:6px 0 0;color:var(--muted)">Rejoins les apprenants qui enrichissent leur vocabulaire chaque jour.</p>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="#">Télécharger Yocable</a>
+          <a class="btn light" href="mailto:yoacableapp@gmail.com">Contact : yoacableapp@gmail.com</a>
         </div>
       </div>
     </section>
 
     <footer>
       <p>© 2025 <strong>Yocable</strong>. Tous droits réservés.</p>
-      <p><a href="mailto:yoacableapp@gmail.com">yoacableapp@gmail.com</a> · <a href="#captures">Captures</a></p>
+      <p><a href="mailto:yoacableapp@gmail.com">yoacableapp@gmail.com</a></p>
     </footer>
   </div>
 </body>
