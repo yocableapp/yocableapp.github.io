@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yocable — Swipe. Learn. Speak.</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="3D.png" />
+
   <!-- SEO -->
   <meta name="description" content="Yocable is a modern vocabulary trainer that blends swipe cards with a smart spaced-repetition engine. 70,000+ words, themes, survival phrases, clear stats, and rewards." />
   <link rel="canonical" href="https://yocableapp.github.io/" />
@@ -20,10 +23,8 @@
 
   <style>
     :root{
-      /* Brand */
-      --brand:#6b74f7;     /* violet-blue */
-      --accent:#9bd4f0;    /* light cyan */
-      /* Base */
+      --brand:#6b74f7;
+      --accent:#9bd4f0;
       --bg:#0b1220;
       --text:#e7e9f1;
       --muted:#a1a8b6;
@@ -60,20 +61,16 @@
 
     .container{max-width:1120px;margin:0 auto;padding:18px}
 
-    /* Top bar (minimal, compact) */
+    /* Top bar */
     .topbar{
       display:flex;align-items:center;gap:12px;justify-content:space-between;
       padding:10px 6px;
     }
-    .brand{
-      display:flex;align-items:center;gap:10px;
-    }
+    .brand{display:flex;align-items:center;gap:10px;}
     .brand img{width:40px;height:auto;border-radius:12px}
     .brand strong{letter-spacing:.2px}
 
-    .topbar .cta{
-      display:flex;gap:10px;flex-wrap:wrap;
-    }
+    .topbar .cta{display:flex;gap:10px;flex-wrap:wrap;}
     .btn{
       appearance:none;border:0;cursor:pointer;
       padding:10px 14px;border-radius:14px;font-weight:700;
@@ -83,54 +80,43 @@
     }
     .btn.light{background:#fff;color:#1f2937}
     .btn:hover{transform:translateY(-1px);box-shadow:0 16px 36px rgba(0,0,0,.24)}
-    .btn.ghost{
-      background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)
-    }
+    .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)}
     @media (prefers-color-scheme: light){
       .btn.ghost{color:#1f2937;border-color:rgba(0,0,0,.12)}
     }
 
-    /* Feature banner */
+    /* Hero */
     header{padding:14px 0 8px}
     .feature-hero{
       border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.06);
       box-shadow:var(--shadow);
-      transform:translateZ(0);
     }
     .feature-hero img{display:block;width:100%;height:auto}
 
     /* Intro */
-    .intro{
-      display:grid;grid-template-columns:1fr;gap:8px;
-      padding:18px 4px 10px;text-align:center;
-    }
+    .intro{text-align:center;padding:20px 4px 10px;}
     .intro h1{margin:0;font-size:40px;line-height:1.15}
     .intro p{margin:8px auto 0;max-width:800px;color:var(--muted)}
     .intro .cta-row{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-    /* Section rows with image + text */
+    /* Sections */
     section{padding:28px 4px}
     .row{
       display:grid;grid-template-columns:0.95fr 1.05fr;gap:22px;align-items:center;
       margin:16px 0;
     }
     .row.reverse{grid-template-columns:1.05fr 0.95fr}
-    @media (max-width:980px){
-      .row,.row.reverse{grid-template-columns:1fr}
-    }
+    @media (max-width:980px){.row,.row.reverse{grid-template-columns:1fr}}
 
     .shot{
       background:var(--card);border-radius:var(--radius);padding:12px;
       border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow);
-      max-width:72%;margin:0 auto;opacity:.98;
-      transform:translateY(4px);transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+      max-width:72%;margin:0 auto;
     }
-    .shot:hover{transform:translateY(0);opacity:1}
     .shot img{width:100%;display:block;border-radius:12px}
 
     h2{font-size:28px;margin:0 0 8px}
     p.lead{font-size:18px;color:var(--muted);margin:8px 0 0}
-
     .card{
       background:var(--card);border-radius:var(--radius);padding:18px;margin-top:12px;
       border:1px solid rgba(255,255,255,.06);box-shadow:0 12px 30px rgba(0,0,0,.22)
@@ -138,32 +124,21 @@
     .card ul{margin:8px 0 0 18px;color:var(--muted)}
     .card li{margin:4px 0}
 
-    /* Accent block */
     .feature{
       background:linear-gradient(135deg,rgba(107,116,247,.16),rgba(155,212,240,.12));
       border:1px solid var(--ring);border-radius:var(--radius-lg);
-      padding:20px;margin-top:8px
+      padding:20px;margin-top:8px;text-align:center;
     }
 
-    /* Footer */
     footer{
       margin-top:36px;padding:26px 0;text-align:center;color:var(--muted);
       border-top:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg,transparent,rgba(0,0,0,.14));
-    }
-    footer a{color:var(--accent);text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    /* Motion safety */
-    @media (prefers-reduced-motion: reduce){
-      .btn,.shot{transition:none}
     }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Compact top bar -->
     <nav class="topbar" aria-label="Top bar">
       <div class="brand">
         <img src="3D.png" alt="Yocable logo" />
@@ -175,15 +150,13 @@
       </div>
     </nav>
 
-    <!-- Feature banner -->
-    <header aria-label="Feature banner">
+    <header>
       <div class="feature-hero">
         <img src="2_US.jpeg" alt="Yocable — The most effective way to remember vocabulary" />
       </div>
     </header>
 
-    <!-- Intro -->
-    <section class="intro" id="intro" aria-label="Intro">
+    <section class="intro">
       <h1>Swipe. Learn. Speak.</h1>
       <p>
         Yocable turns vocabulary study into a fast, focused habit. Review in seconds with intuitive swipe cards,
@@ -192,172 +165,94 @@
       </p>
       <div class="cta-row">
         <a class="btn" href="#">Get Yocable</a>
-        <a class="btn light" href="mailto:yoacableapp@gmail.com">Contact</a>
       </div>
     </section>
 
-    <!-- 1) Swipe learning -->
-    <section id="how-it-works" aria-label="Learn by swiping">
+    <section id="how-it-works">
       <div class="row">
-        <div class="shot">
-          <img src="1_1.jpeg" alt="Swipe-based review screen" />
-        </div>
+        <div class="shot"><img src="1_1.jpeg" alt="Swipe-based review screen" /></div>
         <div>
           <h2>Learn by Swiping</h2>
-          <p class="lead">
-            Right if you know it, left if you don’t — no menus in the way. Each gesture strengthens recall
-            and keeps practice short enough to fit anywhere in your day.
-          </p>
-          <div class="card">
-            <strong>Why it clicks</strong>
-            <ul>
-              <li>Fast loops: dozens of cards in minutes.</li>
-              <li>Micro-decisions: less clutter, more memory.</li>
-              <li>Built-in audio: hear, repeat, retain.</li>
-            </ul>
-          </div>
+          <p class="lead">Right if you know it, left if you don’t. Each gesture strengthens recall and fits anywhere in your day.</p>
         </div>
       </div>
     </section>
 
-    <!-- 2) SRS -->
-    <section aria-label="Smart algorithm">
+    <section>
       <div class="row reverse">
         <div>
           <h2>A Smart Algorithm That Adapts</h2>
           <p class="lead">
-            Words climb through <strong>22 mastery tiers</strong>. Correct answers push reviews further out;
-            mistakes bring them forward before they fade — spaced repetition done right.
+            Words climb through 22 mastery tiers. Correct answers push reviews further out; mistakes bring them back just in time.
           </p>
-          <div class="card">
-            <strong>Under the hood</strong>
-            <ul>
-              <li>Adaptive intervals per word difficulty.</li>
-              <li>New-word loop: tier 0 repeats until first success sticks.</li>
-              <li>Reverse practice: translate both ways for active recall.</li>
-            </ul>
-          </div>
         </div>
-        <div class="shot">
-          <img src="2_2.jpeg" alt="Adaptive scheduling and mastery tiers" />
-        </div>
+        <div class="shot"><img src="2_2.jpeg" alt="Adaptive scheduling and mastery tiers" /></div>
       </div>
     </section>
 
-    <!-- 3) Content -->
-    <section aria-label="Content and personalization">
+    <section>
       <div class="row">
-        <div class="shot">
-          <img src="3_3.jpeg" alt="Thematic lists and custom vocabulary" />
-        </div>
+        <div class="shot"><img src="3_3.jpeg" alt="Thematic lists and custom vocabulary" /></div>
         <div>
           <h2>70,000 Words, Themes & Phrases</h2>
           <p class="lead">
-            Start with curated content by level — from Beginner to Expert — then expand with themed packs like travel,
-            food, business, and culture. Add your own words in seconds and manage up to <strong>four language pairs</strong>.
+            Start with curated content or add your own. Manage multiple languages and create the lists that matter most.
           </p>
-          <div class="card">
-            <strong>Make it yours</strong>
-            <ul>
-              <li>Search and add from the built-in database.</li>
-              <li>Organize by status: In Progress, Learned, Excluded.</li>
-              <li>Bulk actions to reset, exclude, or reschedule words.</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4) Stats -->
-    <section aria-label="Statistics and motivation">
+    <section>
       <div class="row reverse">
         <div>
           <h2>Clear Stats to Stay Motivated</h2>
           <p class="lead">
-            Track accuracy, time, mastery distribution, and weak points. See where effort compounds —
-            and where to push next.
+            Track accuracy, time, and progress. See exactly where you shine and where to improve.
           </p>
-          <div class="card">
-            <strong>Progress at a glance</strong>
-            <ul>
-              <li>Daily goals and streaks build a real habit.</li>
-              <li>Per-pair analytics + a global dashboard.</li>
-              <li>Export-friendly views for study logs.</li>
-            </ul>
-          </div>
         </div>
-        <div class="shot">
-          <img src="4_4.jpeg" alt="Analytics and progress dashboard" />
-        </div>
+        <div class="shot"><img src="4_4.jpeg" alt="Analytics and progress dashboard" /></div>
       </div>
     </section>
 
-    <!-- 5) Themes -->
-    <section aria-label="Appearance and themes">
+    <section>
       <div class="row">
-        <div class="shot">
-          <img src="5_5.jpeg" alt="Appearance settings with 100+ themes" />
-        </div>
+        <div class="shot"><img src="5_5.jpeg" alt="Appearance settings with 100+ themes" /></div>
         <div>
           <h2>100+ Themes for an App That Feels Like You</h2>
           <p class="lead">
-            Choose from refined light/dark palettes or follow the system theme. Clean typography and soft gradients
-            keep focus exactly where it matters — on your next word.
+            Choose elegant light or dark palettes and tailor the app to your mood.
           </p>
-          <div class="card">
-            <strong>Your setup, your rhythm</strong>
-            <ul>
-              <li>Fine-tuned audio & haptics to match the moment.</li>
-              <li>Multilingual interface for international learners.</li>
-              <li>Thoughtful accessibility defaults out of the box.</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 6) Gamification -->
-    <section aria-label="Gamification and rewards">
+    <section>
       <div class="row reverse">
         <div>
           <h2>Earn XP, Level Up, Collect Trophies</h2>
           <p class="lead">
-            Progress on purpose: XP milestones, achievement badges, and streaks keep momentum steady —
-            even on busy days. Small wins add up to fluency.
+            XP milestones, streaks, and achievements make every session feel rewarding.
           </p>
-          <div class="card">
-            <strong>Stay on track</strong>
-            <ul>
-              <li>XP ladder with clear next-level targets.</li>
-              <li>Achievements for depth, consistency, exploration.</li>
-              <li>Gentle reminders to keep the streak alive.</li>
-            </ul>
-          </div>
         </div>
-        <div class="shot">
-          <img src="6_6.jpeg" alt="XP and achievements screens" />
-        </div>
+        <div class="shot"><img src="6_6.jpeg" alt="XP and achievements screens" /></div>
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section aria-label="Get started">
+    <section>
       <div class="feature">
         <h2>Ready to Start?</h2>
         <p class="lead">
-          Join learners who grow their vocabulary every day with short, focused sessions that actually stick.
-          Swipe. Learn. Speak — and unlock the conversations you care about.
+          Join learners who grow their vocabulary every day with short, focused sessions that actually stick.  
+          Swipe. Learn. Speak.
         </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div style="margin-top:12px;">
           <a class="btn" href="#">Get Yocable</a>
-          <a class="btn light" href="mailto:yoacableapp@gmail.com">yoacableapp@gmail.com</a>
         </div>
       </div>
     </section>
 
     <footer>
       <p>© 2025 <strong>Yocable</strong>. All rights reserved.</p>
-      <p><a href="mailto:yoacableapp@gmail.com">yoacableapp@gmail.com</a></p>
     </footer>
   </div>
 </body>
