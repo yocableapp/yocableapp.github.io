@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yocable — Swipe. Learn. Speak.</title>
 
   <!-- SEO -->
-  <meta name="description" content="Yocable is a modern vocabulary trainer with swipe cards and a smart spaced repetition algorithm. Learn hundreds of words every month, easily." />
+  <meta name="description" content="Yocable, l’app moderne pour mémoriser du vocabulaire : cartes à swiper, algorithme de répétition espacée, stats claires et 70 000+ mots." />
   <link rel="canonical" href="https://yocableapp.github.io/" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Yocable — Swipe. Learn. Speak." />
-  <meta property="og:description" content="Swipe cards, spaced repetition, beautiful design. Learn hundreds of words every month, easily." />
+  <meta property="og:description" content="Apprends par swipe, retiens pour de bon. 70 000+ mots, thèmes et phrases. Yocable rend l’apprentissage simple et efficace." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="2_US.jpeg" />
   <meta property="og:url" content="https://yocableapp.github.io/" />
@@ -25,191 +25,190 @@
     :root{
       --bg:#0b1220;
       --bg-soft:#0f172a;
-      --text:#e6e8ee;
-      --muted:#9aa4b2;
-      --brand:#6b74f7;         /* violet-bleu Yocable */
-      --brand-2:#9bd4f0;       /* accent clair */
-      --card:#0f162a;
+      --text:#e7e9f1;
+      --muted:#a1a8b6;
+      --brand:#6b74f7;        /* violet-bleu Yocable */
+      --brand-2:#9bd4f0;      /* accent clair */
+      --card:#0f1628;
       --ring:rgba(107,116,247,.25);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f6f7fb;
-        --bg-soft:#eef1f7;
+        --bg:#f6f8ff;
+        --bg-soft:#eef2ff;
         --text:#0f172a;
         --muted:#475569;
         --card:#ffffff;
-        --ring:rgba(107,116,247,.2);
+        --ring:rgba(107,116,247,.18);
       }
     }
     *{box-sizing:border-box}
     html,body{margin:0}
     body{
       font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(135deg,#0f1830 0%,#273457 60%,#354e7a 100%);
       color:var(--text);
+      background:linear-gradient(135deg,#0f1830 0%,#29365a 55%,#395381 100%);
       line-height:1.6;
     }
     @media (prefers-color-scheme: light){
-      body{background:linear-gradient(135deg,#e9ecff 0%,#eef3ff 60%,#f5f8ff 100%)}
+      body{background:linear-gradient(135deg,#e9ecff 0%,#eef3ff 55%,#f6f9ff 100%)}
     }
 
-    /* Header / hero */
-    .container{max-width:1080px;margin:0 auto;padding:20px}
-    header{padding:42px 0 24px}
-    .hero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:32px;
-      align-items:center;
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+
+    /* HERO : feature graphic en haut */
+    header{padding:22px 0 10px}
+    .feature-hero{
+      border-radius:18px;overflow:hidden;
+      box-shadow:0 22px 60px rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.06);
     }
-    .logo-wrap{display:flex;align-items:center;gap:14px}
-    .logo{width:60px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
-    h1{font-size:42px;line-height:1.15;margin:10px 0 8px}
-    .sub{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .feature-hero img{display:block;width:100%;height:auto}
+
+    /* Intro sous la bannière */
+    .intro{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
+      padding:26px 4px 8px;
+    }
+    @media (max-width:980px){.intro{grid-template-columns:1fr}}
+    .logo{width:64px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+    h1{font-size:40px;line-height:1.12;margin:10px 0 6px}
+    .sub{font-size:18px;color:var(--muted);margin:0 0 18px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .btn{
       appearance:none;border:0;cursor:pointer;
-      padding:12px 18px;border-radius:14px;
-      font-weight:700;background:#fff;color:#1f2937;
-      box-shadow:0 8px 30px rgba(0,0,0,.15);
+      padding:12px 18px;border-radius:14px;font-weight:700;
+      background:#fff;color:#1f2937;text-decoration:none;
+      box-shadow:0 10px 28px rgba(0,0,0,.16);
       transition:transform .15s ease, box-shadow .15s ease;
-      text-decoration:none;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(0,0,0,.2)}
-    .btn.primary{background:var(--brand);color:white}
-    .badges{display:flex;gap:16px;align-items:center;margin:12px 0}
-    .badge img{height:44px;opacity:.95}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 36px rgba(0,0,0,.22)}
+    .btn.primary{background:var(--brand);color:#fff}
 
     .phone{
       background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0));
-      border-radius:22px;padding:10px;
+      border-radius:22px;padding:10px;border:1px solid rgba(255,255,255,.06);
       box-shadow:0 18px 50px rgba(0,0,0,.35);
     }
-    .phone img{width:100%;border-radius:18px;display:block}
+    .phone img{width:100%;display:block;border-radius:18px}
 
     /* Sections */
-    section{padding:36px 0}
-    h2{font-size:28px;margin:0 0 18px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    section{padding:30px 4px}
+    h2{font-size:28px;margin:0 0 14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:980px){.grid-3{grid-template-columns:1fr}}
     .card{
       background:var(--card);border-radius:16px;padding:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 12px 32px rgba(0,0,0,.22);
     }
-    .card p{margin:8px 0 0;color:var(--muted)}
     .card h3{margin:0 0 6px;font-size:18px}
+    .card p{margin:6px 0 0;color:var(--muted)}
+
     .gallery{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px
     }
     .gallery img{
       width:100%;height:auto;border-radius:14px;display:block;
-      box-shadow:0 10px 28px rgba(0,0,0,.18);
+      box-shadow:0 12px 32px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);
     }
+    @media (max-width:980px){.gallery{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.gallery{grid-template-columns:1fr}}
 
-    /* Feature banner */
     .feature-banner{
-      background:linear-gradient(135deg,rgba(107,116,247,.15),rgba(155,212,240,.12));
+      background:linear-gradient(135deg,rgba(107,116,247,.16),rgba(155,212,240,.12));
       border:1px solid var(--ring);
       border-radius:18px;overflow:hidden;
-      display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:center;
+      display:grid;grid-template-columns:1.1fr .9fr;align-items:center;
     }
-    .feature-banner .copy{padding:26px 20px 26px 26px}
-    .feature-banner h3{margin:0 0 10px}
+    .feature-banner .copy{padding:22px}
+    .feature-banner h3{margin:0 0 8px}
     .feature-banner p{margin:0;color:var(--muted)}
-    .feature-banner img{width:100%;height:auto;display:block}
+    .feature-banner img{width:100%;display:block}
 
     footer{
-      margin-top:40px;padding:30px 0;color:var(--muted);
-      text-align:center;border-top:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg,transparent,rgba(0,0,0,.15));
+      margin-top:36px;padding:28px 0;text-align:center;color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.14));
     }
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;gap:20px}
-      .feature-banner{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:560px){
-      h1{font-size:34px}
-      .gallery{grid-template-columns:1fr}
-    }
+    footer a{color:#c7d2fe;text-decoration:none}
+    @media (prefers-color-scheme: light){footer a{color:#4f46e5}}
   </style>
 
   <!-- Schema.org -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Yocable",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Android, iOS, Web",
-    "image": "2_US.jpeg",
-    "logo": "3D.png",
-    "description": "Swipe cards + spaced repetition. Learn hundreds of words every month with Yocable.",
-    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Yocable",
+    "applicationCategory":"EducationalApplication",
+    "operatingSystem":"Android, iOS, Web",
+    "image":"2_US.jpeg",
+    "logo":"3D.png",
+    "description":"Apprends par swipe + répétition espacée. Des centaines de mots chaque mois, facilement.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
   </script>
 </head>
 <body>
   <div class="container">
+    <!-- Bannière tout en haut -->
     <header>
-      <div class="hero">
-        <div>
-          <div class="logo-wrap">
-            <img class="logo" src="3D.png" width="120" height="120" alt="Yocable logo" />
-            <strong style="font-size:18px;letter-spacing:.3px;opacity:.9">Yocable</strong>
-          </div>
-          <h1>Swipe. Learn. Speak.</h1>
-          <p class="sub">The most effective way to remember vocabulary — learn hundreds of words every month, easily.</p>
-
-          <div class="badges" aria-label="awards (illustrative)">
-            <span class="badge"><img src="2_US.jpeg" alt="Feature graphic preview" /></span>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn primary" href="#" aria-label="Get Yocable on Google Play">Get it on Google Play</a>
-            <a class="btn" href="#screens" aria-label="See screenshots">See screenshots</a>
-          </div>
-        </div>
-
-        <div class="phone" aria-hidden="true">
-          <img src="1_1.jpeg" alt="Yocable swipe card screen" loading="eager" />
-        </div>
+      <div class="feature-hero" aria-label="Yocable feature graphic">
+        <img src="2_US.jpeg" alt="Yocable — The most effective way to remember vocabulary" />
       </div>
     </header>
 
-    <section id="why">
+    <!-- Intro + CTA -->
+    <section class="intro">
+      <div>
+        <img class="logo" src="3D.png" alt="Logo Yocable" />
+        <h1>Swipe. Learn. Speak.</h1>
+        <p class="sub">La méthode la plus efficace pour retenir le vocabulaire — apprends des centaines de mots chaque mois, simplement.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#" aria-label="Télécharger Yocable sur Google Play">Obtenir l’app</a>
+          <a class="btn" href="#captures">Voir les captures</a>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <img src="1_1.jpeg" alt="Écran de révision par swipe" />
+      </div>
+    </section>
+
+    <!-- 3 points clés -->
+    <section>
+      <h2>Ce qui change tout</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Swipe learning</h3>
-          <p>Right if you know it, left if you don’t. A flow that makes practice effortless.</p>
+          <h3>Apprentissage par swipe</h3>
+          <p>Droite si tu sais, gauche si tu doutes. Un flux simple qui fait durer la mémoire.</p>
         </div>
         <div class="card">
-          <h3>Smart SRS</h3>
-          <p>Our spaced-repetition algorithm locks words into long-term memory at the perfect time.</p>
+          <h3>Répétition espacée</h3>
+          <p>L’algorithme planifie tes révisions au bon moment pour ancrer les mots.</p>
         </div>
         <div class="card">
-          <h3>Motivation built-in</h3>
-          <p>XP, levels, streaks and clear stats to keep you moving, every day.</p>
+          <h3>Motivation intégrée</h3>
+          <p>XP, niveaux, séries et stats claires — tout pour rester régulier.</p>
         </div>
       </div>
     </section>
 
-    <section id="feature">
+    <!-- Mise en avant contenu -->
+    <section>
       <div class="feature-banner">
         <div class="copy">
-          <h3>70,000 words, themes & survival phrases</h3>
-          <p>Curated content across difficulty levels, plus custom lists you can add in a tap.</p>
+          <h3>70 000+ mots, thèmes & phrases de survie</h3>
+          <p>Du débutant à l’expert, ajoute aussi tes propres listes en un geste.</p>
         </div>
-        <img src="3_3.jpeg" alt="Vocabulary lists and tiers" loading="lazy" />
+        <img src="3_3.jpeg" alt="Listes de vocabulaire et niveaux" loading="lazy" />
       </div>
     </section>
 
-    <section id="screens">
-      <h2 style="text-align:center;margin-bottom:10px">Screenshots</h2>
-      <p class="sub" style="text-align:center;margin:0 0 16px">A quick tour of the app you’ll use every day.</p>
+    <!-- Galerie -->
+    <section id="captures">
+      <h2 style="text-align:center;margin-bottom:8px">Captures d’écran</h2>
+      <p class="sub" style="text-align:center;margin:0 0 14px">Un aperçu rapide de ce que tu vas utiliser chaque jour.</p>
       <div class="gallery">
         <img src="1_1.jpeg" alt="Learn by swiping" loading="lazy" />
         <img src="2_2.jpeg" alt="Smart algorithm to lock in words" loading="lazy" />
@@ -220,40 +219,24 @@
       </div>
     </section>
 
-    <section id="details">
-      <div class="grid-3">
-        <div class="card">
-          <h3>Designed for focus</h3>
-          <p>Clean UI, light & dark themes, subtle haptics and audio settings. Nothing in the way of learning.</p>
-        </div>
-        <div class="card">
-          <h3>Works offline</h3>
-          <p>Local first with cloud sync. Learn anywhere; your progress follows you.</p>
-        </div>
-        <div class="card">
-          <h3>Multi-language</h3>
-          <p>Up to four language pairs at once. Beginner to Expert levels available.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta">
+    <!-- Dernier CTA -->
+    <section>
       <div class="feature-banner">
-        <img src="2_US.jpeg" alt="Yocable feature visual" loading="lazy" />
+        <img src="2_US.jpeg" alt="Yocable — visuel de présentation" loading="lazy" />
         <div class="copy">
-          <h3>Ready to start?</h3>
-          <p>Join thousands of learners who grow their vocabulary every day.</p>
+          <h3>Prêt à commencer ?</h3>
+          <p>Rejoins les apprenants qui font grandir leur vocabulaire chaque jour.</p>
           <div class="cta-row" style="margin-top:12px">
-            <a class="btn primary" href="#">Get it on Google Play</a>
-            <a class="btn" href="#why">How it works</a>
+            <a class="btn primary" href="#">Télécharger</a>
+            <a class="btn" href="mailto:yoacableapp@gmail.com">Contact</a>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      <p>© 2025 <strong>Yocable</strong>. All rights reserved.</p>
-      <p><a href="mailto:hello@yocable.app">Contact</a> · <a href="#screens">Screenshots</a></p>
+      <p>© 2025 <strong>Yocable</strong>. Tous droits réservés.</p>
+      <p><a href="mailto:yoacableapp@gmail.com">yoacableapp@gmail.com</a> · <a href="#captures">Captures</a></p>
     </footer>
   </div>
 </body>
