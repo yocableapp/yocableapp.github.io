@@ -1,210 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="PZlX2K6enuhnf_tONAsaF8-J_OSQrmwVT6Y8tmvpVjQ" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yocable – Swipe. Learn. Speak.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yocable — Swipe. Learn. Speak.</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Yocable is a modern vocabulary trainer with swipe cards and a smart spaced repetition algorithm. Learn hundreds of words every month, easily." />
+  <link rel="canonical" href="https://yocableapp.github.io/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Yocable — Swipe. Learn. Speak." />
+  <meta property="og:description" content="Swipe cards, spaced repetition, beautiful design. Learn hundreds of words every month, easily." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="2_US.jpeg" />
+  <meta property="og:url" content="https://yocableapp.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="2_US.jpeg" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    :root {
-      --blue: #2563eb;
-      --blue-light: #60a5fa;
-      --bg: #f9fbff;
-      --text-dark: #1e293b;
-      --text-light: #475569;
-      --card-bg: #ffffff;
+    :root{
+      --bg:#0b1220;
+      --bg-soft:#0f172a;
+      --text:#e6e8ee;
+      --muted:#9aa4b2;
+      --brand:#6b74f7;         /* violet-bleu Yocable */
+      --brand-2:#9bd4f0;       /* accent clair */
+      --card:#0f162a;
+      --ring:rgba(107,116,247,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --bg-soft:#eef1f7;
+        --text:#0f172a;
+        --muted:#475569;
+        --card:#ffffff;
+        --ring:rgba(107,116,247,.2);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(135deg,#0f1830 0%,#273457 60%,#354e7a 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    @media (prefers-color-scheme: light){
+      body{background:linear-gradient(135deg,#e9ecff 0%,#eef3ff 60%,#f5f8ff 100%)}
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text-dark);
-      line-height: 1.7;
-      scroll-behavior: smooth;
+    /* Header / hero */
+    .container{max-width:1080px;margin:0 auto;padding:20px}
+    header{padding:42px 0 24px}
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:32px;
+      align-items:center;
+    }
+    .logo-wrap{display:flex;align-items:center;gap:14px}
+    .logo{width:60px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+    h1{font-size:42px;line-height:1.15;margin:10px 0 8px}
+    .sub{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      appearance:none;border:0;cursor:pointer;
+      padding:12px 18px;border-radius:14px;
+      font-weight:700;background:#fff;color:#1f2937;
+      box-shadow:0 8px 30px rgba(0,0,0,.15);
+      transition:transform .15s ease, box-shadow .15s ease;
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(0,0,0,.2)}
+    .btn.primary{background:var(--brand);color:white}
+    .badges{display:flex;gap:16px;align-items:center;margin:12px 0}
+    .badge img{height:44px;opacity:.95}
+
+    .phone{
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0));
+      border-radius:22px;padding:10px;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+    }
+    .phone img{width:100%;border-radius:18px;display:block}
+
+    /* Sections */
+    section{padding:36px 0}
+    h2{font-size:28px;margin:0 0 18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--card);border-radius:16px;padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.06);
+    }
+    .card p{margin:8px 0 0;color:var(--muted)}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .gallery{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px
+    }
+    .gallery img{
+      width:100%;height:auto;border-radius:14px;display:block;
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
     }
 
-    header {
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      background: linear-gradient(135deg, var(--blue), var(--blue-light));
-      color: white;
+    /* Feature banner */
+    .feature-banner{
+      background:linear-gradient(135deg,rgba(107,116,247,.15),rgba(155,212,240,.12));
+      border:1px solid var(--ring);
+      border-radius:18px;overflow:hidden;
+      display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:center;
+    }
+    .feature-banner .copy{padding:26px 20px 26px 26px}
+    .feature-banner h3{margin:0 0 10px}
+    .feature-banner p{margin:0;color:var(--muted)}
+    .feature-banner img{width:100%;height:auto;display:block}
+
+    footer{
+      margin-top:40px;padding:30px 0;color:var(--muted);
+      text-align:center;border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.15));
     }
 
-    header img {
-      width: 120px;
-      border-radius: 16px;
-      margin-bottom: 1rem;
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:20px}
+      .feature-banner{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
     }
-
-    h1 {
-      font-size: 2.5rem;
-      margin: 0.3rem 0;
-    }
-
-    p.subtitle {
-      font-size: 1.1rem;
-      margin-top: 0;
-      opacity: 0.95;
-    }
-
-    a.button {
-      display: inline-block;
-      background: white;
-      color: var(--blue);
-      padding: 0.9rem 2rem;
-      border-radius: 50px;
-      margin-top: 1.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a.button:hover {
-      background: var(--blue-light);
-      color: white;
-    }
-
-    section {
-      padding: 3rem 1rem;
-      max-width: 950px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 1.9rem;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-
-    .feature {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-
-    .feature h3 {
-      color: var(--blue);
-      margin-top: 0;
-    }
-
-    .feature p {
-      color: var(--text-light);
-      font-size: 1.05rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background: #eef2ff;
-      color: #475569;
-      font-size: 0.95rem;
-    }
-
-    footer a {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+    @media (max-width:560px){
+      h1{font-size:34px}
+      .gallery{grid-template-columns:1fr}
     }
   </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yocable",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android, iOS, Web",
+    "image": "2_US.jpeg",
+    "logo": "3D.png",
+    "description": "Swipe cards + spaced repetition. Learn hundreds of words every month with Yocable.",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="hero">
+        <div>
+          <div class="logo-wrap">
+            <img class="logo" src="3D.png" width="120" height="120" alt="Yocable logo" />
+            <strong style="font-size:18px;letter-spacing:.3px;opacity:.9">Yocable</strong>
+          </div>
+          <h1>Swipe. Learn. Speak.</h1>
+          <p class="sub">The most effective way to remember vocabulary — learn hundreds of words every month, easily.</p>
 
-  <header>
-    <img src="3D.png" alt="Yocable Logo">
-    <h1>Yocable</h1>
-    <p class="subtitle">The simplest way to master vocabulary. 🚀</p>
-    <a href="#" class="button">Download the App</a>
-  </header>
+          <div class="badges" aria-label="awards (illustrative)">
+            <span class="badge"><img src="2_US.jpeg" alt="Feature graphic preview" /></span>
+          </div>
 
-  <section>
-    <h2>🧠 Smart Learning Made Simple</h2>
-    <div class="feature">
-      <p>
-        <strong>Yocable</strong> is an innovative mobile app that makes learning new vocabulary simple, fast, and fun.  
-        Using an intuitive <strong>swipe-based interface</strong>, you review words in seconds — swipe right if you know it, left if you don’t.
-      </p>
-      <p>
-        No pressure, no clutter — just pure learning flow. Every gesture strengthens your memory naturally.
-      </p>
-    </div>
+          <div class="cta-row">
+            <a class="btn primary" href="#" aria-label="Get Yocable on Google Play">Get it on Google Play</a>
+            <a class="btn" href="#screens" aria-label="See screenshots">See screenshots</a>
+          </div>
+        </div>
 
-    <h2>🚀 The Intelligence Behind It</h2>
-    <div class="feature">
-      <p>
-        At the heart of Yocable lies a <strong>Spaced Repetition System (SRS)</strong> — a proven algorithm that adapts each session to your progress.  
-        Words you know appear less frequently, while tricky ones come back just when you’re about to forget them.
-      </p>
-      <p>
-        The result: faster recall, stronger memory, and effortless consistency.  
-        You don’t study harder — you study smarter.
-      </p>
-    </div>
+        <div class="phone" aria-hidden="true">
+          <img src="1_1.jpeg" alt="Yocable swipe card screen" loading="eager" />
+        </div>
+      </div>
+    </header>
 
-    <h2>🎮 Motivation That Lasts</h2>
-    <div class="feature">
-      <p>
-        Learning should be exciting — not a chore.  
-        With <strong>XP points</strong>, <strong>streaks</strong>, <strong>achievements</strong>, and <strong>progress charts</strong>,  
-        Yocable keeps you engaged, challenged, and rewarded.  
-      </p>
-      <p>
-        Every session feels like a small win — and over time, those wins become fluency. 🏆
-      </p>
-    </div>
+    <section id="why">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Swipe learning</h3>
+          <p>Right if you know it, left if you don’t. A flow that makes practice effortless.</p>
+        </div>
+        <div class="card">
+          <h3>Smart SRS</h3>
+          <p>Our spaced-repetition algorithm locks words into long-term memory at the perfect time.</p>
+        </div>
+        <div class="card">
+          <h3>Motivation built-in</h3>
+          <p>XP, levels, streaks and clear stats to keep you moving, every day.</p>
+        </div>
+      </div>
+    </section>
 
-    <h2>✍️ Personalized Learning</h2>
-    <div class="feature">
-      <p>
-        Customize your experience: add your own words, explore rich <strong>vocabulary themes</strong>  
-        (travel, business, culture, emotions...) and tailor the difficulty to your goals.  
-      </p>
-      <p>
-        Yocable adapts to <strong>you</strong> — not the other way around.
-      </p>
-    </div>
+    <section id="feature">
+      <div class="feature-banner">
+        <div class="copy">
+          <h3>70,000 words, themes & survival phrases</h3>
+          <p>Curated content across difficulty levels, plus custom lists you can add in a tap.</p>
+        </div>
+        <img src="3_3.jpeg" alt="Vocabulary lists and tiers" loading="lazy" />
+      </div>
+    </section>
 
-    <h2>🎨 Light, Beautiful, and Human</h2>
-    <div class="feature">
-      <p>
-        A calm and elegant interface that reflects your mood.  
-        <strong>Light and dark themes</strong>, clean typography, and soft gradients create a space that feels effortless.  
-      </p>
-      <p>
-        Yocable isn’t just an app — it’s your daily pocket companion for growth. 🌤️
-      </p>
-    </div>
+    <section id="screens">
+      <h2 style="text-align:center;margin-bottom:10px">Screenshots</h2>
+      <p class="sub" style="text-align:center;margin:0 0 16px">A quick tour of the app you’ll use every day.</p>
+      <div class="gallery">
+        <img src="1_1.jpeg" alt="Learn by swiping" loading="lazy" />
+        <img src="2_2.jpeg" alt="Smart algorithm to lock in words" loading="lazy" />
+        <img src="3_3.jpeg" alt="70,000 words, themes and phrases" loading="lazy" />
+        <img src="4_4.jpeg" alt="Clear stats to keep you motivated" loading="lazy" />
+        <img src="5_5.jpeg" alt="100+ themes for an app that feels like you" loading="lazy" />
+        <img src="6_6.jpeg" alt="Earn XP, level up and collect trophies" loading="lazy" />
+      </div>
+    </section>
 
-    <h2>🌍 Speak the World’s Language</h2>
-    <div class="feature">
-      <p>
-        Every word you learn is a bridge to a new culture, a new friendship, a new opportunity.  
-        With Yocable, you’re not memorizing — you’re connecting.  
-      </p>
-      <p style="text-align:center; font-style:italic; color:#334155;">
-        “Swipe. Learn. Speak. — and unlock the world.” 🌎✨
-      </p>
-    </div>
-  </section>
+    <section id="details">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Designed for focus</h3>
+          <p>Clean UI, light & dark themes, subtle haptics and audio settings. Nothing in the way of learning.</p>
+        </div>
+        <div class="card">
+          <h3>Works offline</h3>
+          <p>Local first with cloud sync. Learn anywhere; your progress follows you.</p>
+        </div>
+        <div class="card">
+          <h3>Multi-language</h3>
+          <p>Up to four language pairs at once. Beginner to Expert levels available.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 <strong>Yolo Interactive LLC</strong> — All rights reserved.</p>
-    <p><a href="https://yocableapp.github.io/">yocableapp.github.io</a></p>
-  </footer>
+    <section id="cta">
+      <div class="feature-banner">
+        <img src="2_US.jpeg" alt="Yocable feature visual" loading="lazy" />
+        <div class="copy">
+          <h3>Ready to start?</h3>
+          <p>Join thousands of learners who grow their vocabulary every day.</p>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn primary" href="#">Get it on Google Play</a>
+            <a class="btn" href="#why">How it works</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <footer>
+      <p>© 2025 <strong>Yocable</strong>. All rights reserved.</p>
+      <p><a href="mailto:hello@yocable.app">Contact</a> · <a href="#screens">Screenshots</a></p>
+    </footer>
+  </div>
 </body>
 </html>
