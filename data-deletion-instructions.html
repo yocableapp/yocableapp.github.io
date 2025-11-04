@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Deletion Instructions - Yocable</title>
     <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #fff;
+            --primary: #2563eb;
+            --accent: #dc2626;
+            --muted: #64748b;
+            --shadow: rgba(0, 0, 0, 0.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #e2e8f0;
+                --card-bg: #1e293b;
+                --primary: #60a5fa;
+                --accent: #f87171;
+                --muted: #94a3b8;
+                --shadow: rgba(0, 0, 0, 0.4);
+            }
+        }
+
         body {
             font-family: 'Inter', Arial, sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
-            color: #1e293b;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
             text-align: center;
-            background: #fff;
+            background: var(--card-bg);
             padding: 40px 20px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         header img {
@@ -31,11 +55,10 @@
         header h1 {
             margin: 10px 0 5px;
             font-size: 1.8rem;
-            color: #0f172a;
         }
 
         header p {
-            color: #64748b;
+            color: var(--muted);
             font-size: 1rem;
             margin: 0;
         }
@@ -43,14 +66,15 @@
         .container {
             max-width: 850px;
             margin: 40px auto;
-            background: #fff;
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 20px var(--shadow);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         h2, h3 {
-            color: #2563eb;
+            color: var(--primary);
             margin-top: 30px;
         }
 
@@ -60,7 +84,7 @@
 
         p, li {
             font-size: 1rem;
-            color: #334155;
+            color: var(--text-color);
         }
 
         ol, ul {
@@ -68,7 +92,7 @@
         }
 
         a {
-            color: #2563eb;
+            color: var(--primary);
             text-decoration: none;
         }
 
@@ -78,15 +102,19 @@
 
         .email-address {
             font-weight: 600;
-            color: #dc2626;
+            color: var(--accent);
             font-size: 1.05rem;
         }
 
         footer {
             text-align: center;
             font-size: 0.9rem;
-            color: #94a3b8;
+            color: var(--muted);
             margin: 40px 0;
+        }
+
+        footer a {
+            color: var(--primary);
         }
     </style>
 </head>
@@ -98,29 +126,21 @@
     </header>
 
     <div class="container">
-        <p>This page explains how to request the deletion of your personal data associated with your account in <strong>Yocable</strong>, regardless of the login method you use (Facebook, Google, or Email/Password).</p>
+        <p>This page explains how to request the deletion of your personal data associated with your account in <strong>Yocable</strong>, regardless of the login method you use (Google or Email/Password).</p>
 
-        <h2>1. Data Managed by Login Providers (Facebook, Google)</h2>
-        <p>You can revoke our application's access to your account via the settings of these providers. This action will remove the information that the provider shares with us.</p>
+        <h2>1. Data Managed by Google Login</h2>
+        <p>You can revoke our application's access to your Google account through your Google Account settings. This removes the link between your account and Yocable.</p>
 
-        <h3>1.1 For Facebook Logins:</h3>
-        <ol>
-            <li>Go to your Facebook account's <a href="https://www.facebook.com/settings?tab=privacy">Settings & Privacy</a>.</li>
-            <li>Click on "Settings".</li>
-            <li>In the left-hand menu, select "Apps and Websites".</li>
-            <li>Find our application in the list, check the corresponding box, then click the "Remove" button.</li>
-        </ol>
-
-        <h3>1.2 For Google Logins:</h3>
         <ol>
             <li>Go to your <a href="https://myaccount.google.com/">Google Account</a>.</li>
             <li>In the left navigation panel, click on "Security".</li>
             <li>In the "Third-party apps with account access" panel, click on "Manage third-party access".</li>
-            <li>Find our application in the list, click on it, then click "Remove Access".</li>
+            <li>Find <strong>Yocable</strong> in the list, click on it, then click "Remove Access".</li>
         </ol>
 
         <h2>2. Data Stored Directly by Yocable</h2>
-        <p>Yocable stores data related to your learning progress, custom vocabulary lists, and preferences to enhance your experience. To request the complete deletion of this data, please email us at:</p>
+        <p>Yocable stores certain information to improve your learning experience, such as your progress, vocabulary lists, and preferences.  
+        To permanently delete all this data, please send an email to:</p>
 
         <p class="email-address"><a href="mailto:yocableapp@gmail.com">yocableapp@gmail.com</a></p>
 
@@ -128,10 +148,10 @@
         <ul>
             <li>Your username (if applicable)</li>
             <li>The email address associated with your account</li>
-            <li>A clear statement requesting deletion of your data</li>
+            <li>A clear statement requesting the deletion of all your data</li>
         </ul>
 
-        <p>We will confirm receipt and process your request within 30 days, following data protection regulations.</p>
+        <p>We will confirm receipt and process your request within 30 days, in accordance with data protection regulations.</p>
 
         <p>For more information, please visit our <a href="https://yocableapp.github.io/privacy-policy.html">Privacy Policy</a>.</p>
     </div>
