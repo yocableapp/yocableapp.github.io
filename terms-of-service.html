@@ -5,106 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Yocable</title>
     <style>
-        /* General styles for the page body */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #fff;
+            --primary: #2563eb;
+            --accent: #dc2626;
+            --muted: #64748b;
+            --shadow: rgba(0, 0, 0, 0.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #e2e8f0;
+                --card-bg: #1e293b;
+                --primary: #60a5fa;
+                --accent: #f87171;
+                --muted: #94a3b8;
+                --shadow: rgba(0, 0, 0, 0.4);
+            }
+        }
+
         body {
-            font-family: Arial, sans-serif; /* Readable font */
-            line-height: 1.6; /* Line height for better readability */
-            margin: 0; /* Remove default body margins */
-            padding: 20px; /* Add inner spacing around content */
-            background-color: #f4f4f4; /* Light background color */
-            color: #333; /* Main text color */
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
         }
-        /* Main container to center content and add a card-like style */
+
+        header {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px 20px 20px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin: 10px 0 5px;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 1rem;
+            margin: 0;
+        }
+
         .container {
-            max-width: 800px; /* Maximum content width */
-            margin: 20px auto; /* Center the container horizontally with vertical margin */
-            background: #fff; /* White background for content */
-            padding: 30px; /* Inner spacing of the container */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth effect */
+            max-width: 850px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px var(--shadow);
+            transition: background 0.3s, box-shadow 0.3s;
         }
-        /* Styles for main and subheadings */
-        h1, h2, h3 {
-            color: #0056b3; /* Blue color for headings */
+
+        h2 {
+            color: var(--primary);
+            margin-top: 30px;
+            border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+            padding-bottom: 6px;
         }
-        /* Specific style for the main title */
-        h1 {
-            text-align: center; /* Center the title */
-            margin-bottom: 20px; /* Margin below the title */
+
+        p, li {
+            font-size: 1rem;
+            color: var(--text-color);
         }
-        /* Style for paragraphs */
-        p {
-            margin-bottom: 10px; /* Margin below paragraphs */
+
+        ul, ol {
+            margin-left: 25px;
         }
-        /* Styles for lists */
-        ul {
-            list-style-type: disc; /* Bullet points for unordered lists */
-            margin-left: 20px; /* Indentation for lists */
-            margin-bottom: 10px; /* Margin below lists */
-        }
-        ol {
-            list-style-type: decimal; /* Numbers for ordered lists */
-            margin-left: 20px; /* Indentation for lists */
-            margin-bottom: 10px; /* Margin below lists */
-        }
-        /* Style for list items */
-        li {
-            margin-bottom: 5px; /* Margin below each list item */
-        }
-        /* Styles for hyperlinks */
+
         a {
-            color: #007bff; /* Blue color for links */
-            text-decoration: none; /* Remove default underline */
+            color: var(--primary);
+            text-decoration: none;
         }
+
         a:hover {
-            text-decoration: underline; /* Underline links on hover */
+            text-decoration: underline;
         }
-        /* Style for the update date */
+
         .update-date {
-            text-align: center; /* Center the date */
-            font-style: italic; /* Italic text */
-            color: #666; /* Lighter text color */
-            margin-bottom: 30px; /* Margin below the date */
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
         }
-        /* Style for section titles */
-        .section-title {
-            margin-top: 25px; /* Margin above the section title */
-            margin-bottom: 10px; /* Margin below the section title */
-            border-bottom: 1px solid #eee; /* Separator line below the title */
-            padding-bottom: 5px; /* Spacing between the title and the separator line */
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin: 40px 0;
+        }
+
+        footer a {
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
+    <header>
+        <img src="3D.png" alt="Yocable Logo">
+        <h1>Yocable</h1>
+        <p>Terms of Service</p>
+    </header>
+
     <div class="container">
-        <h1>Terms of Service</h1>
         <p class="update-date">Last updated: June 24, 2025</p>
 
-        <h2 class="section-title">1. Introduction</h2>
-        <p>Welcome to Yocable. By using our application, you agree to be bound by these Terms of Service ("ToS"). If you do not agree to these terms, please do not use the application.</p>
+        <h2>1. Introduction</h2>
+        <p>Welcome to <strong>Yocable</strong>. By using our application, you agree to be bound by these Terms of Service (“ToS”). If you do not agree, please discontinue using the app.</p>
 
-        <h2 class="section-title">2. User Account</h2>
+        <h2>2. User Account</h2>
         <p>You are responsible for maintaining the confidentiality of your account and password. You agree to immediately notify Yocable of any unauthorized use of your account.</p>
 
-        <h2 class="section-title">3. Subscriptions</h2>
-        <p>Yocable offers premium features via subscriptions (monthly, yearly). Payments are managed through the App Store (Google Play Store or Apple App Store) and are subject to their terms. Subscriptions automatically renew unless canceled by you through your App Store account settings at least 24 hours before the end of the current period.</p>
-        <p>We also offer a free trial period. If you do not cancel before the end of the trial period, your account will automatically convert to a paid subscription.</p>
+        <h2>3. Subscriptions</h2>
+        <p>Yocable offers premium features through subscriptions (monthly or yearly). Payments are processed via the App Store (Google Play or Apple App Store) and subject to their respective terms. Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period.</p>
+        <p>We also offer a free trial period. If you do not cancel before the trial ends, your subscription will automatically convert to a paid plan.</p>
 
-        <h2 class="section-title">4. User Content and Conduct</h2>
-        <p>You agree not to use the application for any illegal activity or activity prohibited by these ToS. You are solely responsible for the content you create (e.g., custom words). Yocable reserves the right to remove any content that violates these terms.</p>
+        <h2>4. User Content and Conduct</h2>
+        <p>You agree not to use the application for illegal or prohibited activities. You are solely responsible for any content you create (such as custom vocabulary). Yocable reserves the right to remove content that violates these terms.</p>
 
-        <h2 class="section-title">5. Intellectual Property</h2>
-        <p>The application and its original content (excluding user-provided content), features, and functionality are and will remain the exclusive property of Yocable and its licensors.</p>
+        <h2>5. Intellectual Property</h2>
+        <p>The app and its original content (excluding user-generated content), features, and functionality are and will remain the exclusive property of Yocable and its licensors.</p>
 
-        <h2 class="section-title">6. Termination</h2>
-        <p>We may terminate or suspend your access to our application immediately, without prior notice or liability, for any reason whatsoever, including, without limitation, if you violate the ToS.</p>
+        <h2>6. Termination</h2>
+        <p>We may suspend or terminate your access to the application immediately, without prior notice, for any reason, including violation of these ToS.</p>
 
-        <h2 class="section-title">7. Limitation of Liability</h2>
-        <p>In no event shall Yocable, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages. The application is provided "AS IS" and "AS AVAILABLE".</p>
+        <h2>7. Limitation of Liability</h2>
+        <p>In no event shall Yocable, nor its directors, employees, partners, or affiliates, be liable for any indirect, incidental, or consequential damages. The app is provided “AS IS” and “AS AVAILABLE”.</p>
 
-        <h2 class="section-title">8. Modification of Terms</h2>
-        <p>We reserve the right, at our sole discretion, to modify or replace these ToS at any time. We will notify you of any changes by posting the new terms on this page.</p>
-        <p>For more information on how we handle your data, please consult our <a href="https://yocableapp.github.io/privacy-policy.html">Privacy Policy</a>.</p>
+        <h2>8. Modification of Terms</h2>
+        <p>We reserve the right to modify these ToS at any time. Any changes will be posted on this page, and continued use of Yocable after such modifications constitutes acceptance of the new terms.</p>
+
+        <p>For details on how we handle your data, please read our <a href="https://yocableapp.github.io/privacy-policy.html">Privacy Policy</a>.</p>
     </div>
+
+    <footer>
+        &copy; 2025 Yocable. All rights reserved.
+    </footer>
 </body>
 </html>
