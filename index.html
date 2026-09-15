@@ -1,259 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yocable — Swipe. Learn. Speak.</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="3D.png" />
-
-  <!-- SEO -->
-  <meta name="description" content="Yocable is a modern vocabulary trainer that blends swipe cards with a smart spaced-repetition engine. 70,000+ words, themes, survival phrases, clear stats, and rewards." />
-  <link rel="canonical" href="https://yocableapp.github.io/" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Yocable — Swipe. Learn. Speak." />
-  <meta property="og:description" content="Swipe, review, and actually remember. Learn hundreds of words every month with smart scheduling, clear stats, and trophies." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="2_US.jpeg" />
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root{
-      --brand:#6b74f7;
-      --accent:#9bd4f0;
-      --bg:#0b1220;
-      --text:#e7e9f1;
-      --muted:#a1a8b6;
-      --card:#0f1628;
-      --ring:rgba(107,116,247,.22);
-      --shadow:0 18px 48px rgba(0,0,0,.28);
-      --radius:16px;
-      --radius-lg:20px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f6f8ff;
-        --text:#0f172a;
-        --muted:#475569;
-        --card:#ffffff;
-        --ring:rgba(107,116,247,.18);
-        --shadow:0 14px 40px rgba(0,0,0,.12);
-      }
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:linear-gradient(135deg,#101a34 0%,#2b3a63 55%,#3a5686 100%);
-      line-height:1.7;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    @media (prefers-color-scheme: light){
-      body{background:linear-gradient(135deg,#e9ecff 0%,#eef3ff 55%,#f6f9ff 100%)}
-    }
-
-    .container{max-width:1120px;margin:0 auto;padding:18px}
-
-    /* Top bar */
-    .topbar{
-      display:flex;align-items:center;gap:12px;justify-content:space-between;
-      padding:10px 6px;
-    }
-    .brand{display:flex;align-items:center;gap:10px;}
-    .brand img{width:40px;height:auto;border-radius:12px}
-    .brand strong{letter-spacing:.2px}
-
-    .topbar .cta{display:flex;gap:10px;flex-wrap:wrap;}
-    .btn{
-      appearance:none;border:0;cursor:pointer;
-      padding:10px 14px;border-radius:14px;font-weight:700;
-      text-decoration:none;background:var(--brand);color:#fff;
-      box-shadow:0 10px 30px rgba(0,0,0,.18);
-      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-    }
-    .btn.light{background:#fff;color:#1f2937}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 36px rgba(0,0,0,.24)}
-    .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)}
-    @media (prefers-color-scheme: light){
-      .btn.ghost{color:#1f2937;border-color:rgba(0,0,0,.12)}
-    }
-
-    /* Hero */
-    header{padding:14px 0 8px}
-    .feature-hero{
-      border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-    }
-    .feature-hero img{display:block;width:100%;height:auto}
-
-    /* Intro */
-    .intro{text-align:center;padding:20px 4px 10px;}
-    .intro h1{margin:0;font-size:40px;line-height:1.15}
-    .intro p{margin:8px auto 0;max-width:800px;color:var(--muted)}
-    .intro .cta-row{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-    /* Sections */
-    section{padding:28px 4px}
-    .row{
-      display:grid;grid-template-columns:0.95fr 1.05fr;gap:22px;align-items:center;
-      margin:16px 0;
-    }
-    .row.reverse{grid-template-columns:1.05fr 0.95fr}
-    @media (max-width:980px){.row,.row.reverse{grid-template-columns:1fr}}
-
-    .shot{
-      background:var(--card);border-radius:var(--radius);padding:12px;
-      border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow);
-      max-width:72%;margin:0 auto;
-    }
-    .shot img{width:100%;display:block;border-radius:12px}
-
-    h2{font-size:28px;margin:0 0 8px}
-    p.lead{font-size:18px;color:var(--muted);margin:8px 0 0}
-    .card{
-      background:var(--card);border-radius:var(--radius);padding:18px;margin-top:12px;
-      border:1px solid rgba(255,255,255,.06);box-shadow:0 12px 30px rgba(0,0,0,.22)
-    }
-    .card ul{margin:8px 0 0 18px;color:var(--muted)}
-    .card li{margin:4px 0}
-
-    .feature{
-      background:linear-gradient(135deg,rgba(107,116,247,.16),rgba(155,212,240,.12));
-      border:1px solid var(--ring);border-radius:var(--radius-lg);
-      padding:20px;margin-top:8px;text-align:center;
-    }
-
-    footer{
-      margin-top:36px;padding:26px 0;text-align:center;color:var(--muted);
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>yocable</title>
+<link rel="canonical" href="https://yolointeractive.app/en/yocable/">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url=https://yolointeractive.app/en/yocable/">
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#0d1117;color:#e6edf3;
+ font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ padding:48px 20px}
+main{max-width:640px;margin:0 auto}
+h1{font-size:28px;font-weight:600;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:15px;font-weight:600;margin:32px 0 6px;color:#9aa7b4;
+ text-transform:none;letter-spacing:.02em}
+p{margin:0 0 12px;color:#c3ced9}
+a{color:#7fb2ff}
+.bandeau{border:1px solid #27313c;border-radius:12px;padding:16px 18px;margin:0 0 28px;
+ background:#131a22}
+.bandeau p{margin:0;color:#e6edf3}
+.bandeau a{font-weight:600}
+.pied{margin-top:40px;padding-top:16px;border-top:1px solid #1d242c;font-size:14px;color:#7d8998}
+</style>
 </head>
 <body>
-  <div class="container">
-
-    <nav class="topbar" aria-label="Top bar">
-      <div class="brand">
-        <img src="3D.png" alt="Yocable logo" />
-        <strong>Yocable</strong>
-      </div>
-      <div class="cta">
-        <a class="btn ghost" href="#how-it-works">How it works</a>
-        <a class="btn" href="#">Get the App</a>
-      </div>
-    </nav>
-
-    <header>
-      <div class="feature-hero">
-        <img src="2_US.jpeg" alt="Yocable — The most effective way to remember vocabulary" />
-      </div>
-    </header>
-
-    <section class="intro">
-      <h1>Swipe. Learn. Speak.</h1>
-      <p>
-        Yocable turns vocabulary study into a fast, focused habit. Review in seconds with intuitive swipe cards,
-        then let our <strong>spaced-repetition engine</strong> time reviews precisely when memory needs a boost.
-        Explore <strong>70,000+ words</strong>, themes, and survival phrases — with clear stats, XP, and trophies to keep momentum.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="#">Get Yocable</a>
-      </div>
-    </section>
-
-    <section id="how-it-works">
-      <div class="row">
-        <div class="shot"><img src="1_1.jpeg" alt="Swipe-based review screen" /></div>
-        <div>
-          <h2>Learn by Swiping</h2>
-          <p class="lead">Right if you know it, left if you don’t. Each gesture strengthens recall and fits anywhere in your day.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="row reverse">
-        <div>
-          <h2>A Smart Algorithm That Adapts</h2>
-          <p class="lead">
-            Words climb through 22 mastery tiers. Correct answers push reviews further out; mistakes bring them back just in time.
-          </p>
-        </div>
-        <div class="shot"><img src="2_2.jpeg" alt="Adaptive scheduling and mastery tiers" /></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="row">
-        <div class="shot"><img src="3_3.jpeg" alt="Thematic lists and custom vocabulary" /></div>
-        <div>
-          <h2>70,000 Words, Themes & Phrases</h2>
-          <p class="lead">
-            Start with curated content or add your own. Manage multiple languages and create the lists that matter most.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="row reverse">
-        <div>
-          <h2>Clear Stats to Stay Motivated</h2>
-          <p class="lead">
-            Track accuracy, time, and progress. See exactly where you shine and where to improve.
-          </p>
-        </div>
-        <div class="shot"><img src="4_4.jpeg" alt="Analytics and progress dashboard" /></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="row">
-        <div class="shot"><img src="5_5.jpeg" alt="Appearance settings with 100+ themes" /></div>
-        <div>
-          <h2>100+ Themes for an App That Feels Like You</h2>
-          <p class="lead">
-            Choose elegant light or dark palettes and tailor the app to your mood.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="row reverse">
-        <div>
-          <h2>Earn XP, Level Up, Collect Trophies</h2>
-          <p class="lead">
-            XP milestones, streaks, and achievements make every session feel rewarding.
-          </p>
-        </div>
-        <div class="shot"><img src="6_6.jpeg" alt="XP and achievements screens" /></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="feature">
-        <h2>Ready to Start?</h2>
-        <p class="lead">
-          Join learners who grow their vocabulary every day with short, focused sessions that actually stick.  
-          Swipe. Learn. Speak.
-        </p>
-        <div style="margin-top:12px;">
-          <a class="btn" href="#">Get Yocable</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 <strong>Yocable</strong>. All rights reserved.</p>
-    </footer>
-  </div>
+<main>
+<h1>yocable</h1>
+<div class="bandeau">
+<p>this page has moved. it now lives at
+<a href="https://yolointeractive.app/en/yocable/">https://yolointeractive.app/en/yocable/</a>.</p>
+</div>
+<p>if your browser does not take you there, use the link above.</p>
+<p class="pied">yolo interactive llc · usa</p>
+</main>
 </body>
 </html>
